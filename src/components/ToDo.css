@@ -1,19 +1,33 @@
+body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    background-image: url('https://cdn.pixabay.com/photo/2016/12/13/08/57/bird-1903527_640.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
 /* Container */
 .todo-container {
-    width: 100%;
-    max-width: 600px;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    width: 750px;
+    max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #d5dbdd;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Title */
 .todo-title {
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
-    color: #333;
+    color: #ab1919;
     margin-bottom: 20px;
 }
 
@@ -23,6 +37,8 @@
     align-items: center;
     margin-bottom: 20px;
 }
+
+
 
 .task-input {
     flex: 1;
@@ -49,17 +65,11 @@
     transition: background-color 0.3s;
 }
 
-.add-btn:hover {
-    background-color: #218838;
-}
 
-.edit-btn {
-    background-color: #ffc107;
-}
 
-.edit-btn:hover {
-    background-color: #e0a800;
-}
+
+
+
 
 /* Task List */
 .task-list {
@@ -71,16 +81,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: rgb(247, 243, 243);
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(220, 166, 166, 0.05);
     transition: background-color 0.3s;
 }
 
 .task-item:hover {
-    background-color: #f1f1f1;
+    background-color: #f0d8d8;
 }
 
 .task-text {
@@ -108,15 +118,18 @@
     color: #007bff;
 }
 
-.delete-btn:hover {
-    color: #dc3545;
-}
+
 
 .move-btn:hover {
     color: #28a745;
 }
 
-.edit-btn:hover {
-    color: #ffc107;
+.edit-btn {
+    color: #a7a397;
+    background-color:lightblue;
 }
 
+.edit-btn:hover{
+    color: white;
+    background-color: blue;
+}

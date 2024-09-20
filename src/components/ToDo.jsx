@@ -62,13 +62,13 @@ const ToDo = () => {
     return (
         <div className="todo-container">
             {/* Heading */}
-            <h1 className="todo-title">ToDo App</h1>
+            <h1 className="todo-title">TODO App</h1>
 
             {/* Input Box */}
             <div className="input-group">
                 <input
                     type="text"
-                    className="task-input"
+                    className="task-input form-control border-success"
                     placeholder="Enter task"
                     value={newTask}
                     onChange={handleInput}
@@ -84,19 +84,19 @@ const ToDo = () => {
             {/* Task List */}
             <ul className="task-list">
                 {tasks.map((task, index) => (
-                    <li key={index} className="task-item">
-                        <span className="task-text">{task}</span>
+                    <li key={index} className="task-item ">
+                        <span className="task-text fw-bold">{task}</span>
                         <div className="task-buttons">
-                            <button onClick={() => deleteTask(index)} className="task-btn delete-btn">
-                                <i className="bi bi-trash3-fill"></i>
+                            <button onClick={() => deleteTask(index)} className="task-btn delete-btn btn btn-outline-danger ">
+                                <i className="bi bi-trash3-fill bg-outline-warning"></i>
                             </button>
-                            <button onClick={() => moveUp(index)} className="task-btn move-btn">
+                            <button onClick={() => moveUp(index)} className="task-btn move-btn btn btn-outline-success">
                                 <i className="bi bi-arrow-up"></i>
                             </button>
-                            <button onClick={() => moveDown(index)} className="task-btn move-btn">
+                            <button onClick={() => moveDown(index)} className="task-btn move-btn btn btn-outline-success">
                                 <i className="bi bi-arrow-down"></i>
                             </button>
-                            <button onClick={() => editTask(index)} className="task-btn edit-btn">
+                            <button onClick={() => editTask(index)} className="task-btn edit-btn btn btn-outline-warning ">
                                 <i className="bi bi-pen-fill"></i>
                             </button>
                         </div>
