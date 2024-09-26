@@ -1,26 +1,48 @@
+/* Global Styling */
 body {
     justify-content: center;
     align-items: center;
     display: flex;
     height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Modern and clean font */
     background-image: url('https://cdn.pixabay.com/photo/2016/12/13/08/57/bird-1903527_640.png');
-    background-size: cover; 
-    background-position: center; 
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    color: #333;
 }
 
 /* Container */
 .todo-container {
-    justify-content: center;
-    align-items: center;
     display: block;
     width: 750px;
     max-width: 800px;
     margin: 50px auto;
-    padding: 20px;
-    background-color: #d5dbdd;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    transition: transform 0.3s, box-shadow 0.3s; /* Minimal transition for hover */
+}
+
+.todo-container:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* Increased shadow for depth */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Title */
@@ -29,6 +51,28 @@ body {
     text-align: center;
     color: #ab1919;
     margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 5px rgba(240, 216, 216, 0.8);
+    animation: slideDown 0.8s ease-out; /* Slide down animation */
+    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition */
+}
+
+.todo-title:hover {
+    color: #c92a2a; /* Darker red on hover */
+    text-shadow: 4px 4px 7px rgba(240, 150, 150, 0.9); /* Enhanced glow */
+}
+
+/* Slide-down Animation */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Input Box */
@@ -36,45 +80,82 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out 0.2s forwards; /* Delayed fade-in animation */
 }
-
-
 
 .task-input {
     flex: 1;
-    padding: 10px;
+    padding: 12px 15px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transitions */
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #333;
+    animation: inputFocus 0.8s ease-in-out; /* Input focus animation */
+}
+
+@keyframes inputFocus {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .task-input:focus {
     border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+    background-color: #f4fff4; /* Slight green tint on focus */
 }
 
+.task-input:hover {
+    transform: scale(1.02); /* Slight scale on hover */
+    border-color: #218838; /* Darker border on hover */
+}
+
+/* Add Button Animation */
 .add-btn {
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-family: 'Poppins', sans-serif;
+    animation: buttonPop 0.7s ease-in-out; /* Pop-in animation */
 }
 
+@keyframes buttonPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-
-
-
-
+.add-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Scaling effect */
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.4); /* Green glow on hover */
+}
 
 /* Task List */
 .task-list {
     list-style-type: none;
     padding: 0;
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-in-out 0.4s forwards; /* Slight delay for task list */
 }
 
 .task-item {
@@ -84,25 +165,59 @@ body {
     background-color: rgb(247, 243, 243);
     padding: 15px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(220, 166, 166, 0.05);
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(220, 166, 166, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: taskSlide 0.5s ease-in-out forwards; /* Slide animation for tasks */
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+}
+
+@keyframes taskSlide {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .task-item:hover {
-    background-color: #f0d8d8;
+    background-color: #ffe6e6; /* Slight color change on hover */
+    transform: translateY(-2px); /* Small lift on hover */
+    box-shadow: 0 10px 20px rgba(220, 166, 166, 0.2); /* Enhanced shadow */
 }
 
 .task-text {
     flex: 1;
     font-size: 1rem;
     color: #333;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s;
+}
+
+.task-text:hover {
+    color: #c92a2a; /* Change text color on hover */
 }
 
 /* Task Buttons */
 .task-buttons {
     display: flex;
     gap: 10px;
+    animation: buttonFade 0.8s ease-in-out forwards; /* Fade in for task buttons */
+}
+
+@keyframes buttonFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .task-btn {
@@ -111,25 +226,34 @@ body {
     cursor: pointer;
     font-size: 1.2rem;
     color: #555;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .task-btn:hover {
     color: #007bff;
-}
-
-
-
-.move-btn:hover {
-    color: #28a745;
+    transform: scale(1.1); /* Scaling effect on hover */
 }
 
 .edit-btn {
     color: #a7a397;
-    background-color:lightblue;
+    background-color: lightblue;
+    border-radius: 3px;
+    padding: 5px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-.edit-btn:hover{
+.edit-btn:hover {
     color: white;
     background-color: blue;
+    box-shadow: 0 4px 10px rgba(0, 0, 255, 0.3); /* Blue shadow on hover */
+}
+
+.delete-btn {
+    color: #d9534f;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.delete-btn:hover {
+    color: #c9302c;
+    transform: scale(1.2); /* Enlarges on hover */
 }
